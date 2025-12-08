@@ -5,7 +5,7 @@ import { NextResponse } from "next/server";
 
 export async function GET() {
   try {
-    // Load JSON file directly in code
+    
     const jsonModule = await import("../../../data/products.json");
     const jsonObj = jsonModule.default;
     const jsonText = JSON.stringify(jsonObj, null, 2);
