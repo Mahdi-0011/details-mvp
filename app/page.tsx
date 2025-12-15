@@ -4,6 +4,7 @@ import { signIn, signOut, useSession } from "next-auth/react";
 
 export default function Home() {
   const { data: session, status } = useSession();
+  console.log("Session data:", session);
 
 
   return (
@@ -12,7 +13,7 @@ export default function Home() {
 
       {!session && status !== "loading" && (
         <>
-          <p>Please log in.</p>
+          <p className="mb-5">Please log in.</p>
           <button
             onClick={() => signIn("azure-ad")}
             className="border border-blue-500 bg-blue-100"

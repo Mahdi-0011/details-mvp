@@ -1,6 +1,8 @@
 import NextAuth from "next-auth";
 import AzureADProvider from "next-auth/providers/azure-ad";
 
+const ALLOWED_EMAIL = "mahdi.mousavi0011@gmail.com";
+
 const handler = NextAuth({
   providers: [
     AzureADProvider({
@@ -9,7 +11,15 @@ const handler = NextAuth({
       tenantId: process.env.AZURE_AD_TENANT_ID!,
     }),
   ],
+
   secret: process.env.NEXTAUTH_SECRET,
+
+  callbacks: {
+    async signIn({ user }) {
+      return user.email === ALLOWED_EMAIL;
+    },
+  },
+
 });
 
 export { handler as GET, handler as POST };
