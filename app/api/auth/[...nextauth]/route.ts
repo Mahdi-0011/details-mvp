@@ -1,8 +1,9 @@
+/** @format */
+
 import NextAuth from "next-auth";
 import AzureADProvider from "next-auth/providers/azure-ad";
 
-
-const ALLOWED_EMAIL = "mahdi.mousavi001@gmail.com";
+const ALLOWED_EMAIL = "mahdi.mousavi0011@gmail.com";
 
 const handler = NextAuth({
   providers: [
